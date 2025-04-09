@@ -15,7 +15,6 @@ max_data_size_bits = 16 #16 bits = 2 bytes
 def data_segmentation(message_data, max_data_size_bits):
     print("Function to divide the data into smaller parts to send it later")
     segmented_message = [message_data[i : i + max_data_size_bits] for i in range(0, len(message_data), max_data_size_bits)]
-    
     print( "Segmented message:", segmented_message)
     return segmented_message    
     
