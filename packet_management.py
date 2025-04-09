@@ -3,38 +3,38 @@
 # ADDRESS_SIZE_BYTES: 8
 # MAX_DATA_SIZE_BYTES: 2
 # DATA: 0100001001101001011001010110111000100001
-# TO_ADDRESS: DNI de un miembro de la pareja
-# FROM_ADDRESS: DNI del otro miembro de la pareja
+# TO_ADDRESS: info 1
+# FROM_ADDRESS: info 2
 # START_FLAG: 10111000
 # END_FLAG: 11000011
 
 
-message_data = "100001001101001011001010110111000100001" #Lo pasamos como string?
+message_data = "100001001101001011001010110111000100001" #We send it as a string?
 max_data_size_bits = 16 #16 bits = 2 bytes
 
-def dataSegmentation(message_data, max_data_size_bits):
-    print("FUNCION DE DIVIDIR TRAMOS")
+def data_segmentation(message_data, max_data_size_bits):
+    print("Function to divide the data into smaller parts to send it later")
     segmented_message = [message_data[i : i + max_data_size_bits] for i in range(0, len(message_data), max_data_size_bits)]
     
     print( "Segmented message:", segmented_message)
     return segmented_message    
     
-def addAddress():
-    print("Dir de destino y origen en 8 bytes")
+def add_address():
+    print("8 byte address TO and FROM")
 
-def addBitStuffing():
-    print("Insertamos bits en los datos")
+def add_bit_stuffing():
+    print("Add bits to the beginning and end of the data")
 
-def addPadding():
-    print("Agregar bits adicionales para alcanzar una longitud")
+def add_padding():
+    print("Fill up the data with aditional bits in order to reach the needed length for the package")
 
-def addFlags():
-    print("Datos de inicio y final")
+def add_flags():
+    print("Start and end flags")
 
-def concatenateFrames():
-    print("Juntar toda la info para que un solo mensaje sea transmitido")
+def join_frames():
+    print("Join up all the information together")
     
-def sendMessage():
-    print("MENSAJE")
+def send_message():
+    print("MESSAGE:")
     
-dataSegmentation(message_data,max_data_size_bits)
+data_segmentation(message_data,max_data_size_bits)
