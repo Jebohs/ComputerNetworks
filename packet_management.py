@@ -23,8 +23,8 @@ def add_address(segmented_message,address_destination,address_origin):
     
     message_with_address = []
     for segment in segmented_message:
-        newstring = ''.join((address_destination, address_origin, segment))
-        message_with_address.append(newstring)
+        temp_string = ''+ address_destination + address_origin + segment
+        message_with_address.append(temp_string)
     print("Message with DESTINATION and ORIGIN: ", message_with_address)
     return message_with_address
 
