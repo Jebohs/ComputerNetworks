@@ -26,7 +26,7 @@ def add_address(segmented_message,address_destination,address_origin):
         newstring = ''.join((address_destination, address_origin, segment))
         message_with_address.append(newstring)
     print("Message with DESTINATION and ORIGIN: ", message_with_address)
-    return segmented_message
+    return message_with_address
 
 
 def add_bit_stuffing():
