@@ -9,7 +9,7 @@
 # END_FLAG: 11000011
 
 
-message_data = "100001001101001011001010110111000100001" #We send it as a string?
+message_data = "0100001001101001011001010110111000100001" #We send it as a string?
 max_data_size_bits = 16 #16 bits = 2 bytes
 
 def data_segmentation(message_data, max_data_size_bits):
@@ -18,8 +18,16 @@ def data_segmentation(message_data, max_data_size_bits):
     print( "Segmented message:", segmented_message)
     return segmented_message    
     
-def add_address():
-    print("8 byte address TO and FROM")
+def add_address(segmented_message,address_destination,address_origin):
+    #Final print -> [Dest Ori (SEGMENT),Desti Origi (SEGMENT)]
+    
+    message_with_address = []
+    for segment in segmented_message:
+        newstring = ''.join((address_destination, address_origin, segment))
+        message_with_address.append(newstring)
+    print("Message with DESTINATION and ORIGIN: ", message_with_address)
+    return segmented_message
+
 
 def add_bit_stuffing():
     print("Add bits to the beginning and end of the data")
@@ -35,5 +43,10 @@ def join_frames():
     
 def send_message():
     print("MESSAGE:")
+
+
+#Actual program runs here
     
-data_segmentation(message_data,max_data_size_bits)
+address_origin = "0011000000110001001100010011100000110111001101000011011000110100_" #Felix. remove '_' its for debugging
+address_destination = "0011000000110011001101010011000000110011001100110011100100110000_" #Roman, remove '_' ***
+add_address(data_segmentation(message_data,max_data_size_bits),address_destination,address_origin) #Change up later?
